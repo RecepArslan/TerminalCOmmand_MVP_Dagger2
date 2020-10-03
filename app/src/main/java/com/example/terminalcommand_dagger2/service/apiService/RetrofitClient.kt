@@ -1,10 +1,8 @@
 package com.example.terminalcommand_dagger2.service.apiService
 
-import com.example.terminalcommand_dagger2.TimeOutConnect
-import com.example.terminalcommand_dagger2.TimeOutRead
+import com.example.terminalcommand_dagger2.timeOutConnect
+import com.example.terminalcommand_dagger2.timeOutRead
 import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -22,8 +20,8 @@ constructor() {
 
     fun getClient(): Retrofit {
         val okHttpClient = OkHttpClient.Builder()
-            .readTimeout(TimeOutRead, TimeUnit.SECONDS)
-            .connectTimeout(TimeOutConnect, TimeUnit.SECONDS)
+            .readTimeout(timeOutRead, TimeUnit.SECONDS)
+            .connectTimeout(timeOutConnect, TimeUnit.SECONDS)
             .addInterceptor { chain ->
 
                 val original = chain.request()

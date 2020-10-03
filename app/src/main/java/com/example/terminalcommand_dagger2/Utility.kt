@@ -5,10 +5,15 @@ import android.app.ProgressDialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentTransaction
 
 val key = "position"
-val TimeOutRead:Long=0
-val TimeOutConnect:Long=10
+val timeOutRead: Long = 0
+val timeOutConnect: Long = 10
+val splashScreenSleepTime:Long=3000
 
 
 fun showLoadingDialog(context: Context): ProgressDialog {
@@ -33,4 +38,29 @@ fun hideLoading(progressDialog: ProgressDialog) {
 
         }
     }
+}
+
+fun createFragment(Location: Int, fragment: Fragment, context: Context) {
+    (context as FragmentActivity).supportFragmentManager.beginTransaction()
+        .replace(Location, fragment, null)
+        .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+        .addToBackStack(null)
+        .commit()
+
+
+}
+
+fun goFragment(Location: Int, fragment: Fragment, context: Context) {
+    (context as FragmentActivity).supportFragmentManager.beginTransaction()
+        .replace(Location, fragment, null)
+        .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+        .commit()
+
+
+}
+
+fun sendStringData(key: String, data: String, fragment: Fragment) {
+    val args = Bundle()
+    args.putString(key, data)
+    fragment.arguments = args
 }

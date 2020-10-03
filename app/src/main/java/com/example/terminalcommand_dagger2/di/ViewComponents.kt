@@ -1,4 +1,4 @@
-package di
+package com.example.terminalcommand_dagger2.di
 
 import com.example.terminalcommand_dagger2.Categories.CategoriesFragment
 import com.example.terminalcommand_dagger2.MainActivity

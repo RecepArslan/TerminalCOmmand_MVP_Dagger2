@@ -2,10 +2,10 @@ package com.example.terminalcommand_dagger2.Categories
 
 import android.content.Context
 import android.view.View
+import com.example.terminalcommand_dagger2.base.MvpPresenter
 
-interface CategoryFragmentMvpPresenter {
+interface CategoryFragmentMvpPresenter<V:CategoryFragmentMvpView>:MvpPresenter<V> {
     fun getCategories()
-    fun setView(root: View, categoriesFragment: CategoriesFragment)
     fun setCommandListFragment(position: Int, requireContext: Context)
 
 

@@ -9,7 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/myblack"
+        android:background="@android:color/black"
         android:id="@+id/activity_mainActivity_frameLayout"/>
 
 </FrameLayout>
